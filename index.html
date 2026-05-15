@@ -1,1 +1,142 @@
 
+<!DOCTYPE html
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جمل لاكجري | Jammal Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@300;500;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --oud-dark: #4A0404; /* عودي غامق */
+            --gold: #D4AF37;     /* ذهبي ملكي */
+            --black: #000000;
+        }
+
+        body { margin: 0; font-family: 'Tajawal', sans-serif; background: #fff; }
+
+        /* شريط الماركات - اللمسة العالمية */
+        .brand-ticker {
+            background: var(--black);
+            color: var(--gold);
+            padding: 12px 0;
+            border-bottom: 2px solid var(--gold);
+            overflow: hidden;
+        }
+        .brand-ticker marquee { font-weight: 800; font-size: 1.1rem; letter-spacing: 2px; }
+
+        /* الهيدر باسم "جمل لاكجري" */
+        header {
+            background: var(--oud-dark);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+        .logo {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            text-decoration: none;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* واجهة المتجر - مثل ثيم ملاك */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(74,4,4,0.4)), 
+                        url('https://images.unsplash.com/photo-1549466600-62cfec975e4e?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--gold);
+        }
+        .hero h2 { font-size: 3.5rem; margin: 0; }
+
+        /* شبكة الـ 100 منتج */
+        .container { padding: 50px 5%; }
+        .section-title {
+            text-align: center;
+            color: var(--oud-dark);
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            border: 1px solid #f1f1f1;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border-radius: 12px;
+        }
+        .product-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .product-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
+        .product-card h3 { color: var(--oud-dark); font-size: 1.1rem; margin: 15px 0 5px; }
+        .product-card .price { color: var(--gold); font-weight: 800; font-size: 1.2rem; }
+        .btn-buy {
+            background: var(--oud-dark);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand-ticker">
+        <marquee scrollamount="7">
+            ROLEX ★ ROLLS ROYCE ★ MERCEDES-BENZ ★ GUCCI ★ CHANEL ★ BENTLEY ★ PRADA ★ LOUIS VUITTON ★ Bvlgari ★ Cartier
+        </marquee>
+    </div>
+
+    <header>
+        <div class="logo">جمل لاكجري</div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h2>مجموعة الرفاهية المطلقة</h2>
+            <p style="font-size: 1.2rem; letter-spacing: 2px;">نُبهرك بأدق التفاصيل</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">مقتنيات براندات عالمية</h2>
+        <div class="product-grid" id="mainGrid">
+            </div>
+    </div>
+
+    <script>
+        const brands = ["Rolex", "Mercedes", "Gucci", "Bentley", "Chanel"];
+        const grid = document.getElementById('mainGrid');
+        
+        // توليد 100 منتج بلمح البصر
+        for (let i = 1; i <= 100; i++) {
+            const brand = brands[Math.floor(Math.random() * brands.length)];
+            grid.innerHTML += `
+                <div class="product-card">
+                    <img src="https://picsum.photos/400/400?luxury&sig=${i}" alt="Luxury">
+                    <p style="font-size:0.8rem; color:#999; margin:0;">${brand}</p>
+                    <h3>قطعة ملكية فريدة #${i}</h3>
+                    <div class="price">${(Math.random() * 20000 + 2000).toFixed(0)} ر.س</div>
+                    <button class="btn-buy">اقتنيها الآن</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
